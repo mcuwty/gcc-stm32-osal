@@ -1,0 +1,4 @@
+1、注释掉osal_memory.c中的内存大小编译限制；
+2、替换osal_memory.c中的uint16为osalMemHdr_t；
+3、替换osal_memory.h中的uint16为halDataAlign_t；
+4、修改osal_memory.c中的宏定义OSALMEM_IN_USE为0x80000000；
