@@ -78,11 +78,13 @@ all:$(C_OBJ)
 #	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/%.o:%.$(EXT)
+	@mkdir -p OBJ
 	@echo "building $<"
 	@$(CC) -c $(CFLAGS) $(INC_FLAGS) -o $@ $<
 
 -include $(C_DEP)
 $(OBJ_DIR)/%.d:%.$(EXT)
+	@mkdir -p OBJ
 	@echo "making $@"
 	@set -e;rm -f $@;$(CC) -MM $(CFLAGS) $(INC_FLAGS) $< > $@.$$$$;sed 's,\($*\)\.o[ :]*,$(OBJ_DIR)/\1.o $(OBJ_DIR)/\1.d:,g' < $@.$$$$ > $@;rm -f $@.$$$$
 
